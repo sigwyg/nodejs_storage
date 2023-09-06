@@ -1,2 +1,3 @@
 node_modules
 todo-data-storage/file-system/*.json
+*.db

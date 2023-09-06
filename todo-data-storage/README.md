@@ -18,7 +18,7 @@ $ node
 
 > const baseUrl = 'http://localhost:3000/api/todos'
 
-# 一覧を取得して確認っ
+# 一覧を取得して確認
 > await fetch(baseUrl)
 
 > console.log(_.status, await _.json())

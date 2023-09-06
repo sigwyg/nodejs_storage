@@ -9,6 +9,7 @@ app.use(express.json());
 
 // GET
 app.get("/api/todos", (req, res, next) => {
+  console.log(req.query);
   if (!req.query.completed) {
     return dataStorage.fetchAll().then((todos) => res.json(todos), next);
   }
