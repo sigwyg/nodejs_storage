@@ -39,6 +39,8 @@ exports.create = (todo) =>
  * 2. 見つからなかったらnullを返す
  * 3. 見つかったら、引数のオブジェクトで更新する
  * 4. completedが更新されたら、セカンダリインデックスを更新する(db.batch())
+ *
+ * @TODO: 更新は成功するが、必ずnullが返ってくる => statusCode: 404
  */
 exports.update = (id, update) =>
   db.get(`todo:${id}`).then(
