@@ -12,11 +12,11 @@ const sqlite3 =
 const db = new sqlite3.Database(join(__dirname, "sqlite.db"));
 
 const dbGet = promisify(db.get.bind(db));
-const dbRun = function() {
+const dbRun = function () {
   return new Promise((resolve, reject) => {
     return db.run.apply(db, [
       ...arguments,
-      function(err) {
+      function (err) {
         if (err) return reject(err);
         resolve(this);
       },

@@ -2,6 +2,7 @@
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 
+// from `npm run leveldb` to `./leveldb`
 const dataStorage = require(`./${process.env.npm_lifecycle_event}`);
 
 const app = express();
@@ -9,7 +10,6 @@ app.use(express.json());
 
 // GET
 app.get("/api/todos", (req, res, next) => {
-  console.log(req.query);
   if (!req.query.completed) {
     return dataStorage.fetchAll().then((todos) => res.json(todos), next);
   }
@@ -35,7 +35,7 @@ function completedHandler(completed) {
   return (req, res, next) => {
     dataStorage.update(req.params.id, { completed }).then((todo) => {
       if (todo) {
-        res.json(todo);
+        return res.json(todo);
       }
       const err = new Error("ToDo not found");
       err.statusCode = 404;
@@ -44,6 +44,7 @@ function completedHandler(completed) {
   };
 }
 
+// PUT
 app
   .route("/api/todos/:id/completed")
   .put(completedHandler(true))
