@@ -13,15 +13,14 @@
   <body>
     <h1>Todo Data Storage</h1>
     <div>
-      <form hx-post="/api/todos" hx-target="#todo-list" hx-ext="json-enc">
+      <form hx-post="/api/todos" hx-target="#todo-response" hx-ext="json-enc">
         <input type="text" name="title" placeholder="What needs to be done?" />
         <button type="submit">Add</button>
       </form>
     </div>
-    <div id="todo-list">
-      <ul>
-        <li hx-get="/api/todos">Loading...</li>
-      </ul>
-    </div>
+    <div id="todo-response"></div>
+    <ul>
+      <li hx-trigger="load" hx-get="/api/todos">Loading...</li>
+    </ul>
   </body>
 </html>
