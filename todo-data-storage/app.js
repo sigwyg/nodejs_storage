@@ -1,4 +1,5 @@
 "use strict";
+const path = require("path");
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 
@@ -7,6 +8,11 @@ const dataStorage = require(`./${process.env.npm_lifecycle_event}`);
 
 const app = express();
 app.use(express.json());
+
+// front page
+app.get("/", (req, res) => {
+  res.sendFile(path.join(`${__dirname}/front.html`));
+});
 
 // GET
 app.get("/api/todos", (req, res, next) => {

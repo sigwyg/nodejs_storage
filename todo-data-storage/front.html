@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Todo Data Storage</title>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+  </head>
+  <body>
+    <h1>Todo Data Storage</h1>
+    <div>
+      <form hx-post="/api/todos" hx-target="#todo-list" hx-ext="json-enc">
+        <input type="text" name="title" placeholder="What needs to be done?" />
+        <button type="submit">Add</button>
+      </form>
+    </div>
+    <div id="todo-list">
+      <ul>
+        <li hx-get="/api/todos">Loading...</li>
+      </ul>
+    </div>
+  </body>
+</html>
