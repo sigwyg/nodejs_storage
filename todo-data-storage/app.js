@@ -73,4 +73,4 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).json({ error: err.message });
 });
 
-app.listen(3000, () => console.log("Server ready"));
+app.listen(3002, () => console.log("Server ready"));
