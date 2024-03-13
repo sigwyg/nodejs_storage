@@ -15,7 +15,11 @@
   <body>
     <h1>Todo Data Storage</h1>
     <div>
-      <form hx-post="/api/todos" hx-target="#todo-response" hx-ext="json-enc">
+      <form
+        hx-post="http://localhost:3002/api/todos"
+        hx-target="#todo-response"
+        hx-ext="json-enc"
+      >
         <input type="text" name="title" placeholder="What needs to be done?" />
         <button type="submit">Add</button>
       </form>
@@ -25,7 +29,7 @@
     <div
       hx-ext="client-side-templates"
       hx-trigger="load"
-      hx-get="/api/todos"
+      hx-get="http://localhost:3002/api/todos"
       hx-swap="innerHTML"
       hx-target="#todo-list"
       mustache-array-template="foo"

@@ -1,5 +1,4 @@
-APIサーバーのテスト用
-http://localhost:3002/
+APIサーバーのテスト用 http://localhost:3002/
 
 ```
 GET "/api/todos"

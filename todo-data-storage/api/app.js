@@ -11,6 +11,13 @@ app.use(express.json());
 
 // GET
 app.get("/api/todos", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization, access_token",
+  );
+
   if (!req.query.completed) {
     return dataStorage.fetchAll().then((todos) => res.json(todos), next);
   }
