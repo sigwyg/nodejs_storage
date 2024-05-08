@@ -14,6 +14,13 @@ $ cd api
 $ npm run leveldb
 ```
 
+## BFF
+
+```shell
+$ cd bff
+$ deno run --allow-net hono/hello.tsx
+```
+
 ## Frontend
 
 ```shell
